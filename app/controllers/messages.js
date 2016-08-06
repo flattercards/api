@@ -2,8 +2,8 @@ import { Controller } from 'lux-framework';
 
 class MessagesController extends Controller {
   params = [
-    'message',
-    'from'
+    'from',
+    'body'
   ];
 }
 

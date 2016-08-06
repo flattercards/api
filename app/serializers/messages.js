@@ -2,8 +2,8 @@ import { Serializer } from 'lux-framework';
 
 class MessagesSerializer extends Serializer {
   attributes = [
-    'message',
     'from',
+    'body',
     'createdAt',
     'updatedAt'
   ];

@@ -1,10 +1,9 @@
 export function up(schema) {
-  return schema.createTable('messages', table => {
+  return schema.createTable('cards', table => {
     table.increments('id');
-    table.string('message');
-    table.string('from');
+    table.string('code');
     table.timestamps();
-    table.integer('card_id').index();
+
     table.index([
       'id',
       'created_at',
@@ -14,5 +13,5 @@ export function up(schema) {
 }
 
 export function down(schema) {
-  return schema.dropTable('messages');
+  return schema.dropTable('cards');
 }
