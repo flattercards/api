@@ -6,6 +6,7 @@ export function up(schema) {
 
     table.index([
       'id',
+      'code',
       'created_at',
       'updated_at'
     ]);
