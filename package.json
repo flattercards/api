@@ -5,7 +5,7 @@
   "scripts": {
     "start": "lux serve",
     "test": "lux test",
-    "reset": "lux db:reset && lux db:create && lux db:migrate && lux serve"
+    "reset": "lux db:drop && lux db:create && lux db:migrate && lux db:seed && lux serve"
   },
   "author": "",
   "license": "MIT",
