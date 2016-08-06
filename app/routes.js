@@ -1,4 +1,7 @@
 export default function routes() {
-  this.resource('cards');
   this.resource('messages');
+  this.route('cards', {
+    method: 'GET',
+    action: 'index'
+  });
 }
