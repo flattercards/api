@@ -6,7 +6,7 @@ export default function routes() {
     action: 'create'
   });
 
-  // the browser needs a preflight request for now
+  // The browser needs a preflight request for now
   this.route('messages', {
     method: 'OPTIONS',
     action: 'preflight'
