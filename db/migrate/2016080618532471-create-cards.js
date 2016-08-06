@@ -1,7 +1,7 @@
 export function up(schema) {
   return schema.createTable('cards', table => {
     table.increments('id');
-    table.string('code');
+    table.string('code').unique();
     table.timestamps();
 
     table.index([
