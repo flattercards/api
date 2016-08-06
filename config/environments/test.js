@@ -1,3 +1,14 @@
 export default {
-  log: true
+  logging: {
+    level: 'WARN',
+    format: 'text',
+    enabled: true,
+
+    filter: {
+      params: [
+        'email',
+        'password'
+      ]
+    }
+  }
 };
