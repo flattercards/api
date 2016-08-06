@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "start": "lux serve",
-    "test": "lux test"
+    "test": "lux test",
+    "reset": "lux db:reset && lux db:create && lux db:migrate && lux serve"
   },
   "author": "",
   "license": "MIT",
