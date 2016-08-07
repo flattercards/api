@@ -3,9 +3,9 @@
   become: True
   remote_user: root
   roles:
-    - geerlingguy.nodejs
-    - geerlingguy.git
-    - ANXS.postgresql
+    # - geerlingguy.nodejs
+    # - geerlingguy.git
+    # - ANXS.postgresql
     - geerlingguy.nginx
   vars_files:
     - vars/env.yml
@@ -14,15 +14,5 @@
     - nodejs_version: 6.x
       nodejs_npm_global_packages:
        - name: node-sass
-    - nginx_vhosts:
-       - listen: "80 default_server"
-         server_name: "api.flatter.cards"
-         extra_parameters: |
-           location / {
-             proxy_pass http://localhost:4000;
-             proxy_http_version 1.1;
-             proxy_set_header Upgrade $http_upgrade;
-             proxy_set_header Connection 'upgrade';
-             proxy_set_header Host $host;
-             proxy_cache_bypass $http_upgrade;
-           }
+    - nginx_remove_default_vhost: false
+    - nginx_vhosts_filename: vhosts.conf

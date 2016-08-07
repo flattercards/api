@@ -2,16 +2,21 @@
 - hosts: production
   become: True
   remote_user: root
+  vars:
+    - hostname: api.flatter.cards
+    - dir: /var/www/{{hostname}}
   vars_files:
     - vars/env.yml
   tasks:
-    - git: repo=git://github.com/flattercards/api.git dest=/var/www/api.flatter.cards
-    - npm: path=/var/www/api.flatter.cards
+    - git: repo=git://github.com/flattercards/api.git dest={{dir}}
+    - npm: path={{dir}}
     - name: Copy the .env file
       copy:
-        content="PSQL_PASSWORD={{psql_password}}"
-        dest=/var/www/api.flatter.cards/.env
-    - name: nxing make link for api.flatter.cards
-      shell: cd /etc/nginx/sites-enabled && ln -s /etc/nginx/sites-available/api.flatter.cards api.flatter.cards
+        content: PSQL_PASSWORD={{psql_password}}"
+        dest: "{{dir}}/.env"
+    - name: copy vhosts.conf
+      copy: src=vhosts.conf dest=/etc/nginx/sites-available/{{hostname}}
+    - name: nxing make link for {{hostname}}
+    - file: src=/etc/nginx/sites-available/{{hostname}} dest=/etc/nginx/sites-enabled/{{hostname}} state=link
     - name: run migrations
-      shell: cd /root/api && npm run migrations
+      shell: cd {{dir}} && npm run migrations
