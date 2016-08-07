@@ -13,8 +13,10 @@ export default {
 
   production: {
     driver: 'pg',
-    username: 'flatter',
-    database: 'flatter',
-    password: process.env.PSQL_PASSWORD
+    username: 'postgres',
+    domain: 'dokku-postgres-lux-database',
+    port: 5432,
+    database: 'lux_database',
+    password: '93939090beff73ce60cf53dbfdd98dd5'
   }
 };
