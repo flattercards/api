@@ -5,10 +5,13 @@
   vars_files:
     - vars/env.yml
   tasks:
-    - git: repo=git://github.com/flattercards/api.git dest=/root/api
-    - npm: path=/root/api
+    - git: repo=git://github.com/flattercards/api.git dest=/var/www/api.flatter.cards
+    - npm: path=/var/www/api.flatter.cards
     - name: Copy the .env file
       copy:
         content="PSQL_PASSWORD={{psql_password}}"
-        dest=/root/api/.env
-    - shell: npm run start-server
+        dest=/var/www/api.flatter.cards/.env
+    - name: nxing make link for api.flatter.cards
+      shell: cd /etc/nginx/sites-enabled && ln -s /etc/nginx/sites-available/api.flatter.cards api.flatter.cards
+    - name: run migrations
+      shell: cd /root/api && npm run migrations

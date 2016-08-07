@@ -5,7 +5,7 @@
   "scripts": {
     "start": "lux serve",
     "test": "lux test",
-    "start-server": "./node_modules/lux-framework/bin/lux db:create && ./node_modules/lux-framework/bin/lux db:migrate && ./node_modules/lux-framework/bin/lux serve --environment production",
+    "migrations": "./node_modules/lux-framework/bin/lux db:create && ./node_modules/lux-framework/bin/lux db:migrate",
     "deploy": "ansible-playbook -i ansible/hosts ansible/deploy.yml --ask-vault-pass",
     "install-server": "ansible-playbook -i ansible/hosts ansible/setup.yml --ask-vault-pass",
     "reset": "lux db:drop && lux db:create && lux db:migrate && lux db:seed && lux serve"
