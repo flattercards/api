@@ -1,0 +1,6 @@
+---
+- hosts: production
+  become: True
+  remote_user: root
+  tasks:
+    - git: repo=git://github.com/flattercards/api.git dest=/root/api

@@ -1,0 +1,15 @@
+---
+- hosts: production
+  become: True
+  remote_user: root
+  roles:
+    - geerlingguy.nodejs
+    - geerlingguy.git
+    - ANXS.postgresql
+  vars_files:
+    - vars/env.yml
+    - vars/postgresql.yml
+  vars:
+    - nodejs_version: 6.x
+      nodejs_npm_global_packages:
+       - name: node-sass
