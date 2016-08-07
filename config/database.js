@@ -1,3 +1,5 @@
+if (!process.env.PSQL_PASSWORD) require('dotenv').config();
+
 export default {
   development: {
     driver: 'sqlite3',
@@ -10,7 +12,9 @@ export default {
   },
 
   production: {
-    driver: 'sqlite3',
-    database: 'api_prod'
+    driver: 'pg',
+    username: 'flatter',
+    database: 'flatter',
+    password: process.env.PSQL_PASSWORD
   }
 };
