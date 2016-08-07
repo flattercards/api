@@ -11,3 +11,4 @@
       copy:
         content="PSQL_PASSWORD={{psql_password}}"
         dest=/root/api/.env
+    - shell: npm run start-server
