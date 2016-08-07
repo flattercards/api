@@ -12,3 +12,4 @@ npm-debug.log
 *.sqlite
 /dist
 .env
+ansible/*.retry
