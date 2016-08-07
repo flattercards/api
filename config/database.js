@@ -1,5 +1,3 @@
-if (!process.env.PSQL_PASSWORD) require('dotenv').config();
-
 export default {
   development: {
     driver: 'sqlite3',
