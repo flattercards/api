@@ -1,7 +1,7 @@
 export default {
   logging: {
-    level: 'WARN',
-    format: 'json',
+    level: 'DEBUG',
+    format: 'text',
     enabled: true,
 
     filter: {
