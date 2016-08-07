@@ -1,7 +1,7 @@
 {
-  "name": "api",
+  "name": "flatter-api",
   "version": "0.0.1",
-  "description": "",
+  "description": "The API for flatter.cards",
   "scripts": {
     "start": "./node_modules/lux-framework/bin/lux serve",
     "test": "./node_modules/lux-framework/bin/lux test",
