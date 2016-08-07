@@ -2,5 +2,12 @@
 - hosts: production
   become: True
   remote_user: root
+  vars_files:
+    - vars/env.yml
   tasks:
     - git: repo=git://github.com/flattercards/api.git dest=/root/api
+    - npm: path=/root/api
+    - name: Copy the .env file
+      copy:
+        content="PSQL_PASSWORD={{psql_password}}"
+        dest=/root/api/.env
