@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
-    "start": "lux serve",
-    "test": "lux test",
+    "start": "./node_modules/lux-framework/bin/lux serve",
+    "test": "./node_modules/lux-framework/bin/lux test",
     "migrations": "./node_modules/lux-framework/bin/lux db:create && ./node_modules/lux-framework/bin/lux db:migrate",
     "deploy": "ansible-playbook -i ansible/hosts ansible/deploy.yml --ask-vault-pass",
     "install-server": "ansible-playbook -i ansible/hosts ansible/setup.yml --ask-vault-pass",
