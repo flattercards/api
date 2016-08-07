@@ -3,9 +3,9 @@
   become: True
   remote_user: root
   roles:
-    # - geerlingguy.nodejs
-    # - geerlingguy.git
-    # - ANXS.postgresql
+    - geerlingguy.nodejs
+    - geerlingguy.git
+    - ANXS.postgresql
     - geerlingguy.nginx
   vars_files:
     - vars/env.yml

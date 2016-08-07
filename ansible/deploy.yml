@@ -17,6 +17,8 @@
     - name: copy vhosts.conf
       copy: src=vhosts.conf dest=/etc/nginx/sites-available/{{hostname}}
     - name: nxing make link for {{hostname}}
-    - file: src=/etc/nginx/sites-available/{{hostname}} dest=/etc/nginx/sites-enabled/{{hostname}} state=link
+      file: src=/etc/nginx/sites-available/{{hostname}} dest=/etc/nginx/sites-enabled/{{hostname}} state=link
     - name: run migrations
       shell: cd {{dir}} && npm run migrations
+    - name: restart nginx
+      shell: sudo service nginx restart

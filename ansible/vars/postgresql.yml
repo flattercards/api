@@ -11,8 +11,8 @@ postgresql_cluster_reset: false
 # List of databases to be created (optional)
 # Note: for more flexibility with extensions use the postgresql_database_extensions setting.
 postgresql_databases:
-  - name: flatter
-    # owner: flatter          # optional; specify the owner of the database
+  - name: root
+    owner: flatter          # optional; specify the owner of the database
     # hstore: no         # flag to install the hstore extension on this database (yes/no)
     # uuid_ossp: no      # flag to install the uuid-ossp extension on this database (yes/no)
     # citext: no         # flag to install the citext extension on this database (yes/no)
