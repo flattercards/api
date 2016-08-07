@@ -12,11 +12,12 @@ export default {
   },
 
   production: {
+    pool: {
+      min: 0,
+      max: 5
+    },
     driver: 'pg',
-    username: 'postgres',
-    host: 'dokku-postgres-lux-database',
-    port: 5432,
-    database: 'lux_database',
-    password: '93939090beff73ce60cf53dbfdd98dd5'
+    database: '7e932a5d37532a767aa87778f46cacd5',
+    url: 'postgres://bfa2319d83596d60bfc5c144f4604a3a:43090f8402e95429d29078c84969e837@669p.flynnhub.com:3282/7e932a5d37532a767aa87778f46cacd5'
   }
 };
