@@ -5,6 +5,15 @@ const parse = require('pg-connection-string').parse;
 function databaseObject(url, settings = {}) {
   if (!url) return console.error('[ERROR] DATABASE_URL is undefined');
   const connection = parse(url) || {};
+
+  // Lux uses username instead of user
+  if (connection.user) {
+    connection.username = connection.user;
+    delete connection.user;
+  }
+
+  // Merge the objects, the settings will overwrite the values of the connection
+  // if there is a overlapping value.
   return Object.assign(connection, settings);
 }
 
